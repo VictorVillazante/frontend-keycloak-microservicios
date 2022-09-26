@@ -1,0 +1,38 @@
+<div class="container center pt-5">
+    <h1>Listado de reservas</h1>
+    <hr>
+    <table class="table">
+        <thead class="table-info">
+            <tr>
+                <th>Paciente</th>
+                <th>Medico</th>
+                <th>Consultorio</th>
+                <th>Especialidad</th>
+                <th>Fecha</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Estado</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let consulta of consultas" class="table-group-divider"  >
+                <td>{{consulta.paciente}}</td>
+                <td>{{consulta.medico}}</td>
+                <td>{{consulta.consultorio}}</td>
+                <td>{{consulta.especialidad}}</td>
+                <td>{{consulta.atencion}}</td>
+                <td>{{consulta.inicio}}</td>
+                <td>{{consulta.fin}}</td>
+                <td>{{consulta.estado}}</td>
+                <td><button type="button" class="btn btn-info">Modificar</button></td>
+                <td><button (click)="cancelarConsulta(consulta.id)" type="button" class="btn btn-danger">Cancelar</button></td>
+
+            </tr>
+        </tbody>
+        
+    </table>
+</div>

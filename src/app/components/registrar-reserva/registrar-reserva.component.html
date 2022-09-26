@@ -1,0 +1,54 @@
+<div class="container center pt-5">
+  <h1>REGISTRA TU RESERVA</h1>
+  <hr />
+  <div class="m-5 container">
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+
+      <div class="m-4">
+        <input matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+
+      <select class="form-select" aria-label="Default select example" (change)="buscarDoctores($event.target)">
+        <option *ngFor="let especialidad of listaEspecialidades">{{especialidad.nombre}}</option>
+      </select>
+
+      <select [(ngModel)]="tipo_act" class="browser-default custom-select">
+        <option>Tienda de barrio</option>
+        <option>Tecnico de celulares</option>
+      </select>
+      
+      <!-- <select class="form-select" aria-label="Default select example">
+        <option value="especialidad.id" *ngFor="let especialidad of listaEspecialidades">{{especialidad.nombre}}</option>
+      </select> -->
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
