@@ -35,14 +35,14 @@
         <mat-datepicker #picker></mat-datepicker>
       </div>
 
-      <select class="form-select" aria-label="Default select example" (change)="buscarDoctores($event.target)">
+      <!-- <select class="form-select" aria-label="Default select example" (change)="buscarDoctores($event.target)">
         <option *ngFor="let especialidad of listaEspecialidades">{{especialidad.nombre}}</option>
-      </select>
+      </select> -->
 
-      <select [(ngModel)]="tipo_act" class="browser-default custom-select">
+      <!-- <select [(ngModel)]="tipo_act" class="browser-default custom-select">
         <option>Tienda de barrio</option>
         <option>Tecnico de celulares</option>
-      </select>
+      </select> -->
       
       <!-- <select class="form-select" aria-label="Default select example">
         <option value="especialidad.id" *ngFor="let especialidad of listaEspecialidades">{{especialidad.nombre}}</option>
@@ -50,5 +50,13 @@
 
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <select [(ngModel)]="especialidad_elegida" (change)="buscarDoctores()">
+      <option [value]="o.id_especialidades" *ngFor="let o of listaEspecialidades">
+         {{o.nombre}}
+      </option>
+   </select>
+   <select [(ngModel)]="medico_elegido" name="" id="">
+    <option [value]="medico.id_medico" *ngFor="let medico of listaMedicosEspecialidad">{{medico.nombre}}</option>
+   </select>
   </div>
 </div>
