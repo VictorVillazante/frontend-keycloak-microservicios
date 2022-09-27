@@ -1,4 +1,4 @@
 export class Especialidades{
-    id:any;
+    id_especialidades:any;
     nombre:any;
 }

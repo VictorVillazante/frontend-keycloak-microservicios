@@ -13,13 +13,21 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormControl, FormsModule } from '@angular/forms';
+import { MenuAdmComponent } from './components/menu-adm/menu-adm.component';
+import { MenuMedicoComponent } from './components/menu-medico/menu-medico.component';
+import { ModificarReservaComponent } from './components/modificar-reserva/modificar-reserva.component';
+import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaConsultasPacienteIdComponent,
     MenuPacienteComponent,
-    RegistrarReservaComponent
+    RegistrarReservaComponent,
+    MenuAdmComponent,
+    MenuMedicoComponent,
+    ModificarReservaComponent,
+    PaginaPrincipalComponent
   ],
   imports: [
     BrowserModule,

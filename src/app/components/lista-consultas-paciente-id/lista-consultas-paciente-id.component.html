@@ -28,7 +28,7 @@
                 <td>{{consulta.inicio}}</td>
                 <td>{{consulta.fin}}</td>
                 <td>{{consulta.estado}}</td>
-                <td><button type="button" class="btn btn-info">Modificar</button></td>
+                <td><button [routerLink]="['modificar-reserva/'+consulta.id]"  type="button" class="btn btn-info">Modificar</button></td>
                 <td><button (click)="cancelarConsulta(consulta.id)" type="button" class="btn btn-danger">Cancelar</button></td>
 
             </tr>

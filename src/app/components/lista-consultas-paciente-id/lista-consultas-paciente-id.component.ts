@@ -28,7 +28,7 @@ export class ListaConsultasPacienteIdComponent implements OnInit {
   }
     
   cargarConsultas() {
-    this.pacientesService.getConsultas(903).subscribe((data:any)=>{
+    this.pacientesService.getConsultas(1).subscribe((data:any)=>{
       console.log(data);
       this.consultas=data;
       if(this.consultas?.length==0){

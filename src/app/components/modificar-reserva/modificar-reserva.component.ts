@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { EspecialidadesService } from '../../services/especialidades.service';
-import { Especialidades } from '../../models/Especialidades';
-import { FormsModule } from '@angular/forms';
-import { MedicosService } from '../../services/medicos.service';
-import { Medicos } from 'src/app/models/Medicos';
-import { HorariosService } from '../../services/horarios.service';
-import { AtencionService } from '../../services/atencion.service';
+import { ActivatedRoute } from '@angular/router';
+import { Especialidades } from 'src/app/models/Especialidades';
 import { Horarios } from 'src/app/models/Horarios';
+import { Medicos } from 'src/app/models/Medicos';
+import { AtencionService } from 'src/app/services/atencion.service';
+import { EspecialidadesService } from 'src/app/services/especialidades.service';
+import { HorariosService } from 'src/app/services/horarios.service';
+import { MedicosService } from 'src/app/services/medicos.service';
 
 @Component({
-  selector: 'app-registrar-reserva',
-  templateUrl: './registrar-reserva.component.html',
-  styleUrls: ['./registrar-reserva.component.css']
+  selector: 'app-modificar-reserva',
+  templateUrl: './modificar-reserva.component.html',
+  styleUrls: ['./modificar-reserva.component.css']
 })
-export class RegistrarReservaComponent implements OnInit {
+export class ModificarReservaComponent implements OnInit {
+
+
   medico_elegido: any;
   especialidad_elegida:any;
   fecha_elegida:any;
@@ -22,11 +24,15 @@ export class RegistrarReservaComponent implements OnInit {
   listaEspecialidades:Especialidades[] | undefined;
   listaMedicosDisponibles:Medicos[] | undefined;
   listadoHorariosDisponibles:Horarios[] | undefined;
-  constructor(private especialidadesService:EspecialidadesService,private medicosService:MedicosService,private horariosService:HorariosService,private atencionService:AtencionService) { }
+  constructor(private activatedRoute:ActivatedRoute,private especialidadesService:EspecialidadesService,private medicosService:MedicosService,private horariosService:HorariosService,private atencionService:AtencionService) { }
   tomorrow:Date | undefined;
   planModel: any;
+  id_consulta:any;
   ngOnInit(): void {
-    
+    this.activatedRoute.params.subscribe( params => {
+      console.log(params['id'])
+      this.id_consulta=params['id'];
+    });
     this.especialidadesService.getEspecialidades().subscribe((data:any)=>{
       console.log(data);
       this.listaEspecialidades=data;
@@ -74,7 +80,7 @@ export class RegistrarReservaComponent implements OnInit {
     console.log(this.fecha_elegida);
     let fecha=this.fecha_elegida.getFullYear()+"-"+(((this.fecha_elegida.getMonth()+1)+"").length==2?(this.fecha_elegida.getMonth()+1):"0"+(this.fecha_elegida.getMonth()+1))+"-"+(this.fecha_elegida.getDate()+1);
     //console.log(fecha);
-    this.atencionService.reservar(this.id_atencion,this.horario_elegido,fecha).subscribe((data:any)=>{
+    this.atencionService.modificarReserva(this.id_atencion,this.horario_elegido,fecha,this.id_consulta).subscribe((data:any)=>{
       console.log(data);
     })
   }
