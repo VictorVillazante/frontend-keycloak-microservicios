@@ -28,12 +28,12 @@
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
 
-      <div class="m-4">
+      <!-- <div class="m-4">
         <input matInput [matDatepicker]="picker" />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-      </div>
+      </div> -->
 
       <!-- <select class="form-select" aria-label="Default select example" (change)="buscarDoctores($event.target)">
         <option *ngFor="let especialidad of listaEspecialidades">{{especialidad.nombre}}</option>
@@ -50,13 +50,13 @@
 
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <select [(ngModel)]="especialidad_elegida" (change)="buscarDoctores()">
+    <!-- <select [(ngModel)]="especialidad_elegida" (change)="buscarDoctores()">
       <option [value]="o.id_especialidades" *ngFor="let o of listaEspecialidades">
          {{o.nombre}}
       </option>
    </select>
    <select [(ngModel)]="medico_elegido" name="" id="">
     <option [value]="medico.id_medico" *ngFor="let medico of listaMedicosEspecialidad">{{medico.nombre}}</option>
-   </select>
+   </select> -->
   </div>
 </div>
