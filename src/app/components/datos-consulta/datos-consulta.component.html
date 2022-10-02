@@ -20,27 +20,15 @@
             <thead class="table-info">
               <tr>
                 <th>Titulo</th>
-                <th></th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
-              <!-- <tr
-                *ngFor="let consulta of listadoConsultas"
-                class="table-group-divider"
+              <tr
+                *ngFor="let receta of listadoRecetas"
               >
-                <td>{{ consulta.paciente }}</td>
-                <td>{{ consulta.consultorio }}</td>
-                <td>{{ consulta.especialidad }}</td>
-                <td>{{ consulta.inicio }}</td>
-                <td>{{ consulta.fin }}</td>
-                <td>{{ consulta.estado }}</td>
-                <td>
-                </td>
-
-                <td><button [routerLink]="['/llenar-datos-consulta/'+consulta.id]"  type="button" class="btn btn-info">Modificar</button></td>
-      
-              </tr> -->
+                <td>{{ receta.titulo }}</td>
+              
+              </tr>
             </tbody>
           </table>
     </div>
