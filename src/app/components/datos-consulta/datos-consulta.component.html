@@ -7,11 +7,11 @@
         <option *ngFor="let estadoConsulta of listadoEstados">{{estadoConsulta.nombre}}</option>
       </select>
       <div class="form-group mt-5">
-        <label for="exampleFormControlTextarea1">Descripcion receta</label>
+        <label for="exampleFormControlTextarea1">Descripcion de la consulta</label>
         <textarea
           class="form-control"
           id="exampleFormControlTextarea1"
-          rows="3"
+          rows="20"
         ></textarea>
       </div>
     </div>
@@ -20,6 +20,7 @@
             <thead class="table-info">
               <tr>
                 <th>Titulo</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -27,10 +28,16 @@
                 *ngFor="let receta of listadoRecetas"
               >
                 <td>{{ receta.titulo }}</td>
-              
               </tr>
             </tbody>
           </table>
+        <div class="container">
+            <button class="btn btn-info mt-5" [routerLink]="['/receta-consulta/'+idConsulta]">Agregar nueva receta</button>
+        </div>
+
+    </div>
+    <div class="container">
+        <button class="btn btn-info mt-5">Solicitar traspaso de paciente</button>
     </div>
   </div>
 </div>

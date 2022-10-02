@@ -11,4 +11,7 @@ export class RecetasService {
   obtenerRecetasPorIdConsulta(id:any){
     return this.http.get<Recetas[]>('http://localhost:8081/medicos/consulta/receta/'+id);
   }
+  registrarNuevaReceta(receta_nueva:any){
+    return this.http.post<Recetas>('http://localhost:8081/medicos/consulta/receta',receta_nueva);
+  }
 }

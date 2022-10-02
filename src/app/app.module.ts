@@ -19,6 +19,7 @@ import { ModificarReservaComponent } from './components/modificar-reserva/modifi
 import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
 import { ListaConsultasMedicoIdComponent } from './components/lista-consultas-medico-id/lista-consultas-medico-id.component';
 import { DatosConsultaComponent } from './components/datos-consulta/datos-consulta.component';
+import { AgregarRecetaComponent } from './components/agregar-receta/agregar-receta.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DatosConsultaComponent } from './components/datos-consulta/datos-consul
     ModificarReservaComponent,
     PaginaPrincipalComponent,
     ListaConsultasMedicoIdComponent,
-    DatosConsultaComponent
+    DatosConsultaComponent,
+    AgregarRecetaComponent
   ],
   imports: [
     BrowserModule,

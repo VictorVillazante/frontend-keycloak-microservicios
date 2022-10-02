@@ -8,6 +8,7 @@ import { ModificarReservaComponent } from './components/modificar-reserva/modifi
 import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
 import { ListaConsultasMedicoIdComponent } from "./components/lista-consultas-medico-id/lista-consultas-medico-id.component";
 import { DatosConsultaComponent } from './components/datos-consulta/datos-consulta.component';
+import { AgregarRecetaComponent } from './components/agregar-receta/agregar-receta.component';
 
 const APP_ROUTES: Routes = [ 
     { path: '', component:  PaginaPrincipalComponent},
@@ -17,6 +18,7 @@ const APP_ROUTES: Routes = [
         component:  ListaConsultasMedicoIdComponent,
     },
     { path: 'llenar-datos-consulta/:id', component:  DatosConsultaComponent},
+    { path: 'receta-consulta/:id', component:  AgregarRecetaComponent},
     { path: 'menu-paciente', component:  MenuPacienteComponent},
     { path: 'menu-adm', component:  MenuAdmComponent},
     { path: 'menu-medico', component:  MenuMedicoComponent},
