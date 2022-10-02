@@ -1,10 +1,10 @@
 <div class="container p-5">
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-5 mb-3">
       <h1>Registro datos consulta</h1>
       <label>Estado de consulta</label>
-      <select class="form-select" aria-label="Default select example">
-        <option *ngFor="let estadoConsulta of listadoEstados">{{estadoConsulta.nombre}}</option>
+      <select [(ngModel)]="estado_elegido" class="form-select" aria-label="Default select example">
+        <option [value]="estadoConsulta.id_estado_consulta" *ngFor="let estadoConsulta of listadoEstados">{{estadoConsulta.nombre}}</option>
       </select>
       <div class="form-group mt-5">
         <label for="exampleFormControlTextarea1">Descripcion de la consulta</label>
@@ -12,8 +12,10 @@
           class="form-control"
           id="exampleFormControlTextarea1"
           rows="20"
+          [(ngModel)]="descripcion_consulta"
         ></textarea>
       </div>
+      <button class="btn btn-info" (click)="registrarCambios()">Registrar</button>
     </div>
     <div class="col-md-7">
         <table class="table">
@@ -37,7 +39,8 @@
         </div>
 
     </div>
-    <div class="container">
+    <hr>
+    <div class="container d-flex align-items-center justify-content-center">
         <button class="btn btn-info mt-5">Solicitar traspaso de paciente</button>
     </div>
   </div>
