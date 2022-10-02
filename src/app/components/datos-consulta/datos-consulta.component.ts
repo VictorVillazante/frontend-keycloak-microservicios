@@ -25,9 +25,18 @@ export class DatosConsultaComponent implements OnInit {
       console.log(data);
       this.listadoEstados=data;
     })
+    this.obtenerRecetasPorIdConsulta();
+  }
+  obtenerRecetasPorIdConsulta(){
     this.recetasService.obtenerRecetasPorIdConsulta(this.idConsulta).subscribe((data:any)=>{
       console.log(data);
       this.listadoRecetas=data;
+    })
+  }
+  eliminarReceta(id:any){
+    console.log(id);
+    this.recetasService.eliminarRecetaId(id).subscribe((data:any)=>{
+      this.obtenerRecetasPorIdConsulta();
     })
   }
 

@@ -28,6 +28,7 @@
                 *ngFor="let receta of listadoRecetas"
               >
                 <td>{{ receta.titulo }}</td>
+                <td><button class="btn btn-danger" (click)="eliminarReceta(receta.id_receta)">Eliminar</button></td>
               </tr>
             </tbody>
           </table>
