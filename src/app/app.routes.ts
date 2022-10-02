@@ -7,16 +7,22 @@ import { MenuMedicoComponent } from './components/menu-medico/menu-medico.compon
 import { ModificarReservaComponent } from './components/modificar-reserva/modificar-reserva.component';
 import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
 import { ListaConsultasMedicoIdComponent } from "./components/lista-consultas-medico-id/lista-consultas-medico-id.component";
+import { DatosConsultaComponent } from './components/datos-consulta/datos-consulta.component';
 
 const APP_ROUTES: Routes = [ 
     { path: '', component:  PaginaPrincipalComponent},
     { path: 'consultas', component:  ListaConsultasPacienteIdComponent},
-    { path: 'consultas-medico', component:  ListaConsultasMedicoIdComponent},
+    {   
+        path: 'consultas-medico', 
+        component:  ListaConsultasMedicoIdComponent,
+    },
+    { path: 'llenar-datos-consulta/:id', component:  DatosConsultaComponent},
     { path: 'menu-paciente', component:  MenuPacienteComponent},
     { path: 'menu-adm', component:  MenuAdmComponent},
     { path: 'menu-medico', component:  MenuMedicoComponent},
     { path: 'consultas/modificar-reserva/:id', component:  ModificarReservaComponent},
     { path: 'registrar-reserva', component:  RegistrarReservaComponent}
+
 
 ];
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash: false});

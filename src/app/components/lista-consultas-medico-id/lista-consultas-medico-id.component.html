@@ -32,23 +32,18 @@
           <td>{{ consulta.fin }}</td>
           <td>{{ consulta.estado }}</td>
           <td>
-            <button
-              [routerLink]="['modificar-reserva/' + consulta.id]"
-              type="button"
-              class="btn btn-info"
-            >
-              Modificar
-            </button>
           </td>
-          <td>
+          <!-- <td>
             <button
-              [routerLink]="['modificar-reserva/' + consulta.id]"
+              [routerLink]="['llenar/' + consulta.id]"
               type="button"
               class="btn btn-info"
             >
               Llenar datos de consulta
             </button>
-          </td>
+          </td> -->
+          <td><button [routerLink]="['/llenar-datos-consulta/'+consulta.id]"  type="button" class="btn btn-info">Modificar</button></td>
+
         </tr>
       </tbody>
     </table>

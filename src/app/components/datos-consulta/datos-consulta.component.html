@@ -1,0 +1,48 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-5">
+      <h1>Registro datos consulta</h1>
+      <label>Estado de consulta</label>
+      <select class="form-select" aria-label="Default select example">
+        <option *ngFor="let estadoConsulta of listadoEstados">{{estadoConsulta.nombre}}</option>
+      </select>
+      <div class="form-group mt-5">
+        <label for="exampleFormControlTextarea1">Descripcion receta</label>
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+        ></textarea>
+      </div>
+    </div>
+    <div class="col-md-7">
+        <table class="table">
+            <thead class="table-info">
+              <tr>
+                <th>Titulo</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr
+                *ngFor="let consulta of listadoConsultas"
+                class="table-group-divider"
+              >
+                <td>{{ consulta.paciente }}</td>
+                <td>{{ consulta.consultorio }}</td>
+                <td>{{ consulta.especialidad }}</td>
+                <td>{{ consulta.inicio }}</td>
+                <td>{{ consulta.fin }}</td>
+                <td>{{ consulta.estado }}</td>
+                <td>
+                </td>
+
+                <td><button [routerLink]="['/llenar-datos-consulta/'+consulta.id]"  type="button" class="btn btn-info">Modificar</button></td>
+      
+              </tr> -->
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
