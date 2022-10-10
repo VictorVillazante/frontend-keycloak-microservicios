@@ -78,8 +78,9 @@ export class ModificarReservaComponent implements OnInit {
     console.log(this.id_atencion);
     console.log("horario elegido"+this.horario_elegido);
     console.log(this.fecha_elegida);
-    let fecha=this.fecha_elegida.getFullYear()+"-"+(((this.fecha_elegida.getMonth()+1)+"").length==2?(this.fecha_elegida.getMonth()+1):"0"+(this.fecha_elegida.getMonth()+1))+"-"+(this.fecha_elegida.getDate()+1);
-    //console.log(fecha);
+    let dia=(this.fecha_elegida.getDate()+"").length==1?"0"+(this.fecha_elegida.getDate()+""):(this.fecha_elegida.getDate()+"");
+    let fecha=this.fecha_elegida.getFullYear()+"-"+(((this.fecha_elegida.getMonth()+1)+"").length==2?(this.fecha_elegida.getMonth()+1):"0"+(this.fecha_elegida.getMonth()+1))+"-"+dia;
+    console.log(fecha);
     this.atencionService.modificarReserva(this.id_atencion,this.horario_elegido,fecha,this.id_consulta).subscribe((data:any)=>{
       console.log(data);
     })
