@@ -72,7 +72,7 @@ export class RegistrarReservaComponent implements OnInit {
     console.log(this.id_atencion);
     console.log("horario elegido"+this.horario_elegido);
     console.log(this.fecha_elegida);
-    let dia=(this.fecha_elegida.getDate()+"").length==1?"0"+(this.fecha_elegida.getDate()+""):(this.fecha_elegida.getDate()+"");
+    let dia=((this.fecha_elegida.getDate()+1)+"").length==1?"0"+((this.fecha_elegida.getDate()+1)+""):((this.fecha_elegida.getDate()+1)+"");
     let fecha=this.fecha_elegida.getFullYear()+"-"+(((this.fecha_elegida.getMonth()+1)+"").length==2?(this.fecha_elegida.getMonth()+1):"0"+(this.fecha_elegida.getMonth()+1))+"-"+dia;
     console.log(fecha);
     this.atencionService.reservar(this.id_atencion,this.horario_elegido,fecha).subscribe((data:any)=>{
