@@ -14,4 +14,7 @@ export class RecetasService {
   registrarNuevaReceta(receta_nueva:any){
     return this.http.post<Recetas>('http://localhost:8081/medicos/consulta/receta',receta_nueva);
   }
+  eliminarRecetaId(id:any){
+    return this.http.delete('http://localhost:8081/medicos/consulta/receta/'+id,{responseType: 'text'});
+  }
 }
