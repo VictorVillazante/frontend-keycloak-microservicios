@@ -39,7 +39,7 @@
         <div class="container">
             <button class="btn btn-info mt-1" [routerLink]="['/receta-consulta/'+idConsulta]">Agregar nueva receta</button>
         </div>
-        <!-- <div style="overflow: scroll; height: 250px;">
+        <div style="overflow: scroll; height: 250px;">
           <table class="table">
             <thead class="table-info">
               <tr>
@@ -49,21 +49,40 @@
             </thead>
             <tbody>
               <tr
-                *ngFor="let receta of listadoRecetas"
+                *ngFor="let ordenLaboratorio of listadoOrdenLaboratorio"
               >
-                <td>{{ receta.titulo }}</td>
-                <td><button class="btn btn-danger" (click)="eliminarReceta(receta.id_receta)">Eliminar</button></td>
+                <td>Orden {{ ordenLaboratorio.id_orden_laboratorio }}</td>
+                <td><button class="btn btn-danger" (click)="eliminarOrdenLaboratorio(ordenLaboratorio.id_orden_laboratorio)">Eliminar</button></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="container">
-            <button class="btn btn-info mt-1" [routerLink]="['/receta-consulta/'+idConsulta]">Solicitar nueva laboratorio</button>
-        </div> -->
+            <button class="btn btn-info mt-1" [routerLink]="['/llenar-datos-consulta/orden-laboratorio/'+idConsulta]">Solicitar nueva laboratorio</button>
+        </div>
     </div>
     <hr>
     <div class="container d-flex align-items-center justify-content-center">
-        <button class="btn btn-info mt-5">Solicitar traspaso de paciente</button>
+        <button [routerLink]="['/llenar-datos-consulta/registrar-traspaso/'+idConsulta]" class="btn btn-info mt-5">Llenar hoja de traspaso</button>
+        <!-- <button  class="btn btn-info mx-5 mt-5">Ver hoja de traspaso</button> -->
+    </div>
+    <div style="overflow: scroll; height: 250px;">
+      <table class="table" >
+        <thead class="table-info">
+          <tr>
+            <th>Titulo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let receta of listadoRecetas"
+          >
+            <td>{{ receta.titulo }}</td>
+            <td><button class="btn btn-danger" (click)="eliminarReceta(receta.id_receta)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

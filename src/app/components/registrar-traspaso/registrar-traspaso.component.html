@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>
+        FORMULARIO DE REFERENCIA
+    </h1>
+    <div class="form-group mt-5">
+        <label for="exampleFormControlTextarea1">Examen clinico</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"
+            [(ngModel)]="examen_clinico"></textarea>
+    </div>
+    <div class="form-group mt-5">
+        <label for="exampleFormControlTextarea1">Diagnostico presuntivo</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"
+            [(ngModel)]="diagnostico_presuntivo"></textarea>
+    </div>
+    <button (click)="registrarHojaTraspaso()" class="btn btn-info mt-5">Registrar hoja de traspaso</button>
+</div>

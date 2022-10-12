@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>REGISTRAR ORDEN DE LABORATORIO</h1>
+    <div class="form-group mt-5">
+        <label for="exampleFormControlTextarea1">Descripcion de la consulta</label>
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="15"
+          [(ngModel)]="descripcion"
+        ></textarea>
+    </div>
+    <button class="btn btn-info" (click)="registrarOrdenLaboratorio()">Registrar</button>
+</div>

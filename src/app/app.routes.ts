@@ -9,6 +9,8 @@ import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-p
 import { ListaConsultasMedicoIdComponent } from "./components/lista-consultas-medico-id/lista-consultas-medico-id.component";
 import { DatosConsultaComponent } from './components/datos-consulta/datos-consulta.component';
 import { AgregarRecetaComponent } from './components/agregar-receta/agregar-receta.component';
+import { RegistrarTraspasoComponent } from './components/registrar-traspaso/registrar-traspaso.component';
+import { RegistrarOrdenLaboratorioComponent } from './components/registrar-orden-laboratorio/registrar-orden-laboratorio.component';
 
 const APP_ROUTES: Routes = [ 
     { path: '', component:  PaginaPrincipalComponent},
@@ -18,6 +20,9 @@ const APP_ROUTES: Routes = [
         component:  ListaConsultasMedicoIdComponent,
     },
     { path: 'llenar-datos-consulta/:id', component:  DatosConsultaComponent},
+    { path: 'llenar-datos-consulta/registrar-traspaso/:id', component:  RegistrarTraspasoComponent},
+    { path: 'llenar-datos-consulta/orden-laboratorio/:id', component:  RegistrarOrdenLaboratorioComponent},
+
     { path: 'receta-consulta/:id', component:  AgregarRecetaComponent},
     { path: 'menu-paciente', component:  MenuPacienteComponent},
     { path: 'menu-adm', component:  MenuAdmComponent},

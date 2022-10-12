@@ -20,6 +20,8 @@ import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-p
 import { ListaConsultasMedicoIdComponent } from './components/lista-consultas-medico-id/lista-consultas-medico-id.component';
 import { DatosConsultaComponent } from './components/datos-consulta/datos-consulta.component';
 import { AgregarRecetaComponent } from './components/agregar-receta/agregar-receta.component';
+import { RegistrarTraspasoComponent } from './components/registrar-traspaso/registrar-traspaso.component';
+import { RegistrarOrdenLaboratorioComponent } from './components/registrar-orden-laboratorio/registrar-orden-laboratorio.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AgregarRecetaComponent } from './components/agregar-receta/agregar-rece
     PaginaPrincipalComponent,
     ListaConsultasMedicoIdComponent,
     DatosConsultaComponent,
-    AgregarRecetaComponent
+    AgregarRecetaComponent,
+    RegistrarTraspasoComponent,
+    RegistrarOrdenLaboratorioComponent
   ],
   imports: [
     BrowserModule,
