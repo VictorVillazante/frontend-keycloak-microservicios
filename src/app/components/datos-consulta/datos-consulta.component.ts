@@ -7,6 +7,8 @@ import { Recetas } from '../../models/Recetas';
 import { ConsultaService } from 'src/app/services/consulta.service';
 import { OrdenLaboratorioService } from 'src/app/services/orden-laboratorio.service';
 import { OrdenesLaboratorio } from 'src/app/models/OrdenesLaboratorio';
+import { HojaTraspasoService } from 'src/app/services/hoja-traspaso.service';
+import { HojasTraspaso } from '../../models/HojasTraspaso';
 
 @Component({
   selector: 'app-datos-consulta',
@@ -15,13 +17,16 @@ import { OrdenesLaboratorio } from 'src/app/models/OrdenesLaboratorio';
 })
 export class DatosConsultaComponent implements OnInit {
 
+
   listadoEstados:EstadosConsultas[]=[];
-  constructor(private ordenLaboratorioService:OrdenLaboratorioService,private activatedRoute:ActivatedRoute,private consultaService:ConsultaService,private estadosReservaService:EstadosReservaService,private recetasService:RecetasService) { }
+  constructor(private hojaTraspasoService:HojaTraspasoService,private ordenLaboratorioService:OrdenLaboratorioService,private activatedRoute:ActivatedRoute,private consultaService:ConsultaService,private estadosReservaService:EstadosReservaService,private recetasService:RecetasService) { }
   idConsulta:any;
   listadoRecetas:Recetas[]=[];
   estado_elegido:any;
   descripcion_consulta:any;
   listadoOrdenLaboratorio:OrdenesLaboratorio[]=[];
+  listadoTraspasos:HojasTraspaso[]=[];
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( params => {
       console.log(params['id'])
@@ -33,6 +38,13 @@ export class DatosConsultaComponent implements OnInit {
     })
     this.obtenerOrdenesLaboratorioPorIdConsulta();
     this.obtenerRecetasPorIdConsulta();
+    this.obtenerHojasTraspasoIdConsulta();
+  }
+  obtenerHojasTraspasoIdConsulta() {
+    this.hojaTraspasoService.obtenerHojasTraspasoPorIdConsulta(this.idConsulta).subscribe((data:any)=>{
+      console.log(data);
+      this.listadoTraspasos=data;
+    })  
   }
   obtenerOrdenesLaboratorioPorIdConsulta(){
     this.ordenLaboratorioService.obtenerTodasOrdenesLaboratorioPorIdConsulta(this.idConsulta).subscribe((data:any)=>{
@@ -46,6 +58,12 @@ export class DatosConsultaComponent implements OnInit {
       console.log(data);
       this.obtenerOrdenesLaboratorioPorIdConsulta();
     })
+  }
+  eliminarHojaTraspaso(idHojaTraspaso: any) {
+    this.hojaTraspasoService.eliminarHojaTraspaso(idHojaTraspaso).subscribe((data:any)=>{
+      console.log(data);
+      this.obtenerHojasTraspasoIdConsulta();
+    })  
   }
   obtenerRecetasPorIdConsulta(){
     this.recetasService.obtenerRecetasPorIdConsulta(this.idConsulta).subscribe((data:any)=>{

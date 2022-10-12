@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AtencionService {
   modificarReserva(id_atencion: any, horario_elegido: any, fecha: string,id_consulta:any) {
-    return this.http.put<Object>("http://localhost:8081/pacientes/reservas/"+id_consulta,{
+    let data={
       "id_paciente":1,
       "fecha":fecha,
       "id_horario":horario_elegido,
@@ -14,7 +14,13 @@ export class AtencionService {
       "id_consultorio":1,
       "id_atencion":id_atencion,
       "informe_consulta":""
-    });
+    };
+    console.log("ACTUALIZAR RESERVA---------------------------------------------------------------------------------------------------------")
+    console.log(data);
+    return this.http.put<Object>("http://localhost:8081/pacientes/reservas/"+id_consulta,data);
+  }
+  reservarAtencionJSON(data:any){
+    return this.http.post<Object>("http://localhost:8081/pacientes/reservas",data);
   }
   reservar(id_atencion: any, horario_elegido: any, fecha_elegida: any) {
     console.log("reservar")

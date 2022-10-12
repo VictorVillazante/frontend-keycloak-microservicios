@@ -1,0 +1,91 @@
+<div class="container center pt-5">
+    <h1>REGISTRAR RESERVA DE PACIENTE</h1>
+    <hr/>
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Paciente</span>
+        <input (change)="establecerPacienteElegido($event.target)" type="text" list="pacientes" class="form-control"/>
+        <datalist id="pacientes">
+            <option *ngFor="let paciente of listaPacientes">{{paciente.id_paciente}} {{paciente.nombre}}</option>
+        </datalist>
+    </div>      
+    <hr />
+    <div class="mx-3 container">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Seleccione especialidad requerida</label
+        >
+        <select
+          [(ngModel)]="especialidad_elegida"
+          class="form-select"
+          aria-label="Default select example"
+          (change)="buscarDoctores()"
+        >
+          <option
+            [value]="especialidad.id_especialidades"
+            *ngFor="let especialidad of listaEspecialidades; let i = index"
+            [attr.selected]="i > 0 ? 'selected' : null"
+          >
+            {{ especialidad.nombre }}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Seleccione medico</label
+        >
+        <select
+          [(ngModel)]="medico_elegido"
+          class="form-select"
+          aria-label="Default select example"
+          (change)="buscarAtencion()"
+        >
+          <option
+            [value]="medico.id_medico"
+            *ngFor="let medico of listaMedicosDisponibles"
+          >
+            {{ medico.nombre }}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Seleccione fecha</label
+        >
+        <div (change)="buscarHorarios()">
+          <input
+            #start_time="ngModel"
+            date="true"
+            class="form-control"
+            matInput
+            [matDatepicker]="picker"
+            [(ngModel)]="fecha_elegida"
+            (dateChange)="buscarHorarios()"
+            data-date-format="DD-MM-YYYY"
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Seleccione horario</label
+        >
+        <select
+          [(ngModel)]="horario_elegido"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option
+            [value]="horario.id_horario"
+            *ngFor="let horario of listadoHorariosDisponibles"
+          >
+            {{ horario.inicio + " " + horario.fin }}
+          </option>
+        </select>
+      </div>
+      <button class="btn btn-primary" (click)="registrarReserva()">
+        Reservar
+      </button>
+    </div>
+  </div>
+  

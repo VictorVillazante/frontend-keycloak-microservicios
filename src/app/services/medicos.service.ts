@@ -6,6 +6,9 @@ import { Medicos } from '../models/Medicos';
   providedIn: 'root'
 })
 export class MedicosService {
+  getConsultasFecha(fecha_elegida: any) {
+    return this.http.get<any>('http://localhost:8081/adm/consultas-dia?fecha='+fecha_elegida);
+  }
 
   constructor(private http:HttpClient) { }
   getDoctoresEspecialidad(id:any){

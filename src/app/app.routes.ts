@@ -11,6 +11,8 @@ import { DatosConsultaComponent } from './components/datos-consulta/datos-consul
 import { AgregarRecetaComponent } from './components/agregar-receta/agregar-receta.component';
 import { RegistrarTraspasoComponent } from './components/registrar-traspaso/registrar-traspaso.component';
 import { RegistrarOrdenLaboratorioComponent } from './components/registrar-orden-laboratorio/registrar-orden-laboratorio.component';
+import { RegistrarReservaAdmComponent } from './components/registrar-reserva-adm/registrar-reserva-adm.component';
+import { ListadoReservasAdmComponent } from './components/listado-reservas-adm/listado-reservas-adm.component';
 
 const APP_ROUTES: Routes = [ 
     { path: '', component:  PaginaPrincipalComponent},
@@ -28,8 +30,10 @@ const APP_ROUTES: Routes = [
     { path: 'menu-adm', component:  MenuAdmComponent},
     { path: 'menu-medico', component:  MenuMedicoComponent},
     { path: 'consultas/modificar-reserva/:id', component:  ModificarReservaComponent},
-    { path: 'registrar-reserva', component:  RegistrarReservaComponent}
-
+    { path: 'registrar-reserva', component:  RegistrarReservaComponent},
+    
+    { path: 'adm/listado-reserva', component:  ListadoReservasAdmComponent},
+    { path: 'adm/registrar-reserva', component:  RegistrarReservaAdmComponent},
 
 ];
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash: false});

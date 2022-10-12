@@ -1,0 +1,54 @@
+<div class="container center pt-5">
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Fecha consulta</span>
+        <input [(ngModel)]="fecha_elegida" type="date" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+        <button class="btn btn-outline-info" (click)="buscarConsultas()">Buscar</button>
+    </div>
+  <div class="container">
+    <h1>Listado de reservas</h1>
+    <hr />
+    <table class="table">
+      <thead class="table-info">
+        <tr>
+          <th>Paciente</th>
+          <th>Consultorio</th>
+          <th>Especialidad</th>
+          <th>Inicio</th>
+          <th>Fin</th>
+          <th>Estado</th>
+          <th>Medico</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let consulta of listadoConsultas"
+          class="table-group-divider"
+        >
+          <td>{{ consulta.paciente }}</td>
+          <td>{{ consulta.consultorio }}</td>
+          <td>{{ consulta.especialidad }}</td>
+          <td>{{ consulta.inicio }}</td>
+          <td>{{ consulta.fin }}</td>
+          <td>{{ consulta.estado }}</td>
+          <td>{{ consulta.nombreMedico }}</td>
+          <td>
+          </td>
+          <!-- <td>
+            <button
+              [routerLink]="['llenar/' + consulta.id]"
+              type="button"
+              class="btn btn-info"
+            >
+              Llenar datos de consulta
+            </button>
+          </td> -->
+          <td><button [routerLink]="['/consultas/modificar-reserva/'+consulta.id]"  type="button" class="btn btn-info">Modificar</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="eliminarConsulta(consulta.id)">Eliminar</button></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

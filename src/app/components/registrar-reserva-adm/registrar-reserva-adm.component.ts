@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Especialidades } from 'src/app/models/Especialidades';
 import { Horarios } from 'src/app/models/Horarios';
 import { Medicos } from 'src/app/models/Medicos';
+import { Pacientes } from 'src/app/models/Pacientes';
 import { AtencionService } from 'src/app/services/atencion.service';
 import { EspecialidadesService } from 'src/app/services/especialidades.service';
 import { HorariosService } from 'src/app/services/horarios.service';
 import { MedicosService } from 'src/app/services/medicos.service';
+import { PacienteServiceService } from 'src/app/services/paciente-service.service';
 
 @Component({
-  selector: 'app-modificar-reserva',
-  templateUrl: './modificar-reserva.component.html',
-  styleUrls: ['./modificar-reserva.component.css']
+  selector: 'app-registrar-reserva-adm',
+  templateUrl: './registrar-reserva-adm.component.html',
+  styleUrls: ['./registrar-reserva-adm.component.css']
 })
-export class ModificarReservaComponent implements OnInit {
-
+export class RegistrarReservaAdmComponent implements OnInit {
 
   medico_elegido: any;
   especialidad_elegida:any;
@@ -24,15 +24,16 @@ export class ModificarReservaComponent implements OnInit {
   listaEspecialidades:Especialidades[] | undefined;
   listaMedicosDisponibles:Medicos[] | undefined;
   listadoHorariosDisponibles:Horarios[] | undefined;
-  constructor(private activatedRoute:ActivatedRoute,private especialidadesService:EspecialidadesService,private medicosService:MedicosService,private horariosService:HorariosService,private atencionService:AtencionService) { }
+  listaPacientes:Pacientes[]=[];
+  id_paciente:any;
+  constructor(private pacienteServiceService:PacienteServiceService,private especialidadesService:EspecialidadesService,private medicosService:MedicosService,private horariosService:HorariosService,private atencionService:AtencionService) { }
   tomorrow:Date | undefined;
   planModel: any;
-  id_consulta:any;
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe( params => {
-      console.log(params['id'])
-      this.id_consulta=params['id'];
-    });
+    this.pacienteServiceService.obtenerTodosPacientes().subscribe((data:any)=>{
+      console.log(data);
+      this.listaPacientes=data;
+    })
     this.especialidadesService.getEspecialidades().subscribe((data:any)=>{
       console.log(data);
       this.listaEspecialidades=data;
@@ -44,6 +45,15 @@ export class ModificarReservaComponent implements OnInit {
     this.fecha_elegida =  new Date(today.setDate(today.getDate() + 1));
     console.log(this.fecha_elegida);
     this.buscarHorarios();
+  }
+  establecerPacienteElegido(arg0:any) {
+    console.log(arg0.value);
+    for(let j=0;j<this.listaPacientes.length;j++){
+      if((this.listaPacientes[j].id_paciente+" "+this.listaPacientes[j].nombre).trim()==arg0.value.trim()){
+        console.log(this.listaPacientes[j].id_paciente);
+        this.id_paciente=this.listaPacientes[j].id_paciente;
+      }
+    }
   }
   buscarDoctores(){
     console.log("Buscar doctores");
@@ -81,7 +91,18 @@ export class ModificarReservaComponent implements OnInit {
     let dia=((this.fecha_elegida.getDate()+1)+"").length==1?"0"+((this.fecha_elegida.getDate()+1)+""):((this.fecha_elegida.getDate()+1)+"");
     let fecha=this.fecha_elegida.getFullYear()+"-"+(((this.fecha_elegida.getMonth()+1)+"").length==2?(this.fecha_elegida.getMonth()+1):"0"+(this.fecha_elegida.getMonth()+1))+"-"+dia;
     console.log(fecha);
-    this.atencionService.modificarReserva(this.id_atencion,this.horario_elegido,fecha,this.id_consulta).subscribe((data:any)=>{
+    let data={
+      "id_consultas":null,
+      "id_paciente":this.id_paciente,
+      "fecha":fecha,
+      "id_horario":this.horario_elegido,
+      "id_estado_consulta":1,
+      "id_consultorio":1,
+      "id_atencion":this.id_atencion,
+      "informe_consulta":""
+    };
+    console.log(data);
+    this.atencionService.reservarAtencionJSON(data).subscribe((data:any)=>{
       console.log(data);
     })
   }

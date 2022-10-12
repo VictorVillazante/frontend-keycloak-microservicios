@@ -76,10 +76,10 @@
         </thead>
         <tbody>
           <tr
-            *ngFor="let receta of listadoRecetas"
+            *ngFor="let hojasTraspasos of listadoTraspasos"
           >
-            <td>{{ receta.titulo }}</td>
-            <td><button class="btn btn-danger" (click)="eliminarReceta(receta.id_receta)">Eliminar</button></td>
+            <td>Hoja traspaso {{ hojasTraspasos.id_hoja_traspaso }}</td>
+            <td><button class="btn btn-danger" (click)="eliminarHojaTraspaso(hojasTraspasos.id_hoja_traspaso)">Eliminar</button></td>
           </tr>
         </tbody>
       </table>
