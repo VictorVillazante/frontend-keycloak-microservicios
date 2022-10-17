@@ -29,8 +29,8 @@
           <td>{{ traspaso.paciente }}</td>
           <td>{{ traspaso.medico }}</td>
 
-          <td *ngIf="traspaso.aceptado==0"><button type="button" class="btn btn-success">Habilitar</button></td>
-          <td *ngIf="traspaso.aceptado==1"><button type="button" class="btn btn-danger">Deshabilitar</button></td>
+          <td *ngIf="traspaso.aceptado==0"><button type="button" class="btn btn-success" (click)="cambiarEstadoAceptado(traspaso.id_traspaso)">Habilitar</button></td>
+          <td *ngIf="traspaso.aceptado==1"><button type="button" class="btn btn-danger" (click)="cambiarEstadoRechazado(traspaso.id_traspaso)">Deshabilitar</button></td>
 
 
           <!-- <td>

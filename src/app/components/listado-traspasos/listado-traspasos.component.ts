@@ -7,6 +7,7 @@ import { AdmService } from 'src/app/services/adm.service';
   styleUrls: ['./listado-traspasos.component.css']
 })
 export class ListadoTraspasosComponent implements OnInit {
+
   id:any=3;
   listadoTraspasos:any[]=[];
   fecha_elegida:any="2022-09-25";
@@ -26,6 +27,18 @@ export class ListadoTraspasosComponent implements OnInit {
     this.admService.getTraspasosFecha(this.fecha_elegida).subscribe((data:any)=>{
       console.log(data);
       this.listadoTraspasos=data;
+    })
+  }
+  cambiarEstadoAceptado(idTraspaso:any){
+    this.admService.habilitarTraspaso(idTraspaso).subscribe((data:any)=>{
+      this.buscarTraspasos();
+
+    }) 
+  }
+  cambiarEstadoRechazado(idTraspaso:any){
+    this.admService.deshabilitarTraspaso(idTraspaso).subscribe((data:any)=>{
+      this.buscarTraspasos();
+
     })
   }
 }

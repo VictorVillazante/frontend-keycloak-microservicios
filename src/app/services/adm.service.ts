@@ -5,7 +5,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AdmService {
-
+  deshabilitarTraspaso(idTraspaso: any) {
+    console.log('http://localhost:8081/adm/hojas-traspaso/deshabilitar/'+idTraspaso);
+    return this.http.put<any>('http://localhost:8081/adm/hojas-traspaso/deshabilitar/'+idTraspaso,{});
+  }
+  habilitarTraspaso(idTraspaso: any) {
+    console.log('http://localhost:8081/adm/hojas-traspaso/habilitar/'+idTraspaso);
+    return this.http.put<any>('http://localhost:8081/adm/hojas-traspaso/habilitar/'+idTraspaso,{});
+  }
+  // /hojas-traspaso/habilitar/{id}
 
   constructor(private http:HttpClient) { }
   cancelarConsulta(id:any){
