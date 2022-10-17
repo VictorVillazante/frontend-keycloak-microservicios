@@ -19,6 +19,7 @@
           <th>Medico</th>
           <th></th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -33,8 +34,7 @@
           <td>{{ consulta.fin }}</td>
           <td>{{ consulta.estado }}</td>
           <td>{{ consulta.nombreMedico }}</td>
-          <td>
-          </td>
+
           <!-- <td>
             <button
               [routerLink]="['llenar/' + consulta.id]"
@@ -44,6 +44,7 @@
               Llenar datos de consulta
             </button>
           </td> -->
+          <td><button [routerLink]="['/adm/ver-datos-consulta/'+consulta.id]"  type="button" class="btn btn-info">Ver datos</button></td>
           <td><button [routerLink]="['/consultas/modificar-reserva/'+consulta.id]"  type="button" class="btn btn-info">Modificar</button></td>
           <td><button type="button" class="btn btn-danger" (click)="eliminarConsulta(consulta.id)">Eliminar</button></td>
 

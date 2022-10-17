@@ -26,6 +26,7 @@ import { RegistrarReservaAdmComponent } from './components/registrar-reserva-adm
 import { ListadoReservasAdmComponent } from './components/listado-reservas-adm/listado-reservas-adm.component';
 import { ListadoTraspasosComponent } from './components/listado-traspasos/listado-traspasos.component';
 import { VerDatosPacienteComponent } from './components/ver-datos-paciente/ver-datos-paciente.component';
+import { DatosConsultaAdmComponent } from './components/datos-consulta-adm/datos-consulta-adm.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { VerDatosPacienteComponent } from './components/ver-datos-paciente/ver-d
     RegistrarReservaAdmComponent,
     ListadoReservasAdmComponent,
     ListadoTraspasosComponent,
-    VerDatosPacienteComponent
+    VerDatosPacienteComponent,
+    DatosConsultaAdmComponent
   ],
   imports: [
     BrowserModule,

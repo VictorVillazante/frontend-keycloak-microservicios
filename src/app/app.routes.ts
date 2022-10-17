@@ -14,6 +14,7 @@ import { RegistrarOrdenLaboratorioComponent } from './components/registrar-orden
 import { RegistrarReservaAdmComponent } from './components/registrar-reserva-adm/registrar-reserva-adm.component';
 import { ListadoReservasAdmComponent } from './components/listado-reservas-adm/listado-reservas-adm.component';
 import { ListadoTraspasosComponent } from './components/listado-traspasos/listado-traspasos.component';
+import { DatosConsultaAdmComponent } from './components/datos-consulta-adm/datos-consulta-adm.component';
 
 const APP_ROUTES: Routes = [ 
     { path: '', component:  PaginaPrincipalComponent},
@@ -36,6 +37,7 @@ const APP_ROUTES: Routes = [
     { path: 'adm/listado-reserva', component:  ListadoReservasAdmComponent},
     { path: 'adm/registrar-reserva', component:  RegistrarReservaAdmComponent},
     { path: 'adm/listado-traspasos', component:  ListadoTraspasosComponent},
+    { path: 'adm/ver-datos-consulta/:id', component:  DatosConsultaAdmComponent},
 
 
 ];

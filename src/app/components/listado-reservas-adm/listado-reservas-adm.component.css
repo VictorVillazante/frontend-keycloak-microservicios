@@ -1,0 +1,7 @@
+tbody tr:hover{
+    background-color: #cff4fc;
+}
+
+tbody tr:hover td{
+    background-color: #cff4fc;
+}

@@ -1,0 +1,83 @@
+<div class="container text-center mt-5">
+    <h1>DATOS PACIENTE</h1>
+    <div class="container text-center">
+        <div class="container" style="border: solid 8px #cff4fc;">
+            <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg?w=2000" alt="" style="width: 200px;height: 200px;">
+            <table style="width: 100%; font-size: 20px;">
+                <tr>
+                    <td>Nombre:</td>
+                    <td>{{datos[0][3]}}</td>
+                </tr>
+                <tr>
+                    <td>Direccion:</td>
+                    <td>{{datos[0][4]}}</td>
+                </tr>
+                <tr>
+                    <td>Telefono:</td>
+                    <td>{{datos[0][5]}}</td>
+                </tr>
+                <tr>
+                    <td>CI:</td>
+                    <td>{{datos[0][6]}}</td>
+                </tr>
+            </table>
+        </div>
+       
+        <h2>Documentos</h2>
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <h3>Cedula de identidad</h3>
+                    <div class="container">
+                        <img src="https://impresa.lapatria.bo/fotos/06_2018/322508_2_13.jpg" alt="" style="width: 50%;">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Carnet de hospital</h3>
+                    <div class="container">
+                        <img src="https://pbs.twimg.com/media/EbICD7DX0AIx48h.jpg" alt="" style="width: 50%">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="container" style="border: solid 8px #cff4fc;">
+            <h1>DATOS CONSULTA</h1>
+            <div class="container text-center">
+                <table style="width: 100%; font-size: 20px;">
+                    <tr>
+                        <td>Id consulta:</td>
+                        <td>{{datos[0][0]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Especialidad:</td>
+                        <td>{{datos[0][1]}}</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Nombre de medico:</td>
+                        <td>{{datos[0][2]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Hora inicio:</td>
+                        <td>{{datos[0][9]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Hora fin:</td>
+                        <td>{{datos[0][10]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha consulta:</td>
+                        <td>{{datos[0][11]}}</td>
+                    </tr>
+                    <tr>
+                        <td>Consultorio:</td>
+                        <td>{{datos[0][13]}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
