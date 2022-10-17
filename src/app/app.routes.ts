@@ -13,6 +13,7 @@ import { RegistrarTraspasoComponent } from './components/registrar-traspaso/regi
 import { RegistrarOrdenLaboratorioComponent } from './components/registrar-orden-laboratorio/registrar-orden-laboratorio.component';
 import { RegistrarReservaAdmComponent } from './components/registrar-reserva-adm/registrar-reserva-adm.component';
 import { ListadoReservasAdmComponent } from './components/listado-reservas-adm/listado-reservas-adm.component';
+import { ListadoTraspasosComponent } from './components/listado-traspasos/listado-traspasos.component';
 
 const APP_ROUTES: Routes = [ 
     { path: '', component:  PaginaPrincipalComponent},
@@ -34,6 +35,8 @@ const APP_ROUTES: Routes = [
     
     { path: 'adm/listado-reserva', component:  ListadoReservasAdmComponent},
     { path: 'adm/registrar-reserva', component:  RegistrarReservaAdmComponent},
+    { path: 'adm/listado-traspasos', component:  ListadoTraspasosComponent},
+
 
 ];
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash: false});

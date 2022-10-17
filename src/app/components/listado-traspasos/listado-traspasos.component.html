@@ -1,0 +1,52 @@
+<div class="container center pt-5">
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Fecha consulta</span>
+        <input [(ngModel)]="fecha_elegida" type="date" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+        <button class="btn btn-outline-info" (click)="buscarTraspasos()">Buscar</button>
+    </div>
+  <div class="container">
+    <h1>Listado de reservas</h1>
+    <hr />
+    <table class="table">
+      <thead class="table-info">
+        <tr>
+          <th>Traspaso</th>
+          <th>Especialidad</th>
+          <th>Paciente</th>
+          <th>Medico</th>
+          <th></th>
+          <th></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let traspaso of listadoTraspasos"
+          class="table-group-divider"
+        >
+          <td>Traspaso {{ traspaso.id_traspaso }}</td>
+          <td>{{ traspaso.especialidad }}</td>
+          <td>{{ traspaso.paciente }}</td>
+          <td>{{ traspaso.medico }}</td>
+
+          <td *ngIf="traspaso.aceptado==0"><button type="button" class="btn btn-success">Habilitar</button></td>
+          <td *ngIf="traspaso.aceptado==1"><button type="button" class="btn btn-danger">Deshabilitar</button></td>
+
+
+          <!-- <td>
+            <button
+              [routerLink]="['llenar/' + consulta.id]"
+              type="button"
+              class="btn btn-info"
+            >
+              Llenar datos de consulta
+            </button>
+          </td> -->
+          <td><button type="button" class="btn btn-info">Ver datos</button></td>
+          <!-- <td><button type="button" class="btn btn-danger" (click)="eliminarConsulta(consulta.id)">Eliminar</button></td> -->
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

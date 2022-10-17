@@ -24,6 +24,7 @@ import { RegistrarTraspasoComponent } from './components/registrar-traspaso/regi
 import { RegistrarOrdenLaboratorioComponent } from './components/registrar-orden-laboratorio/registrar-orden-laboratorio.component';
 import { RegistrarReservaAdmComponent } from './components/registrar-reserva-adm/registrar-reserva-adm.component';
 import { ListadoReservasAdmComponent } from './components/listado-reservas-adm/listado-reservas-adm.component';
+import { ListadoTraspasosComponent } from './components/listado-traspasos/listado-traspasos.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ListadoReservasAdmComponent } from './components/listado-reservas-adm/l
     RegistrarTraspasoComponent,
     RegistrarOrdenLaboratorioComponent,
     RegistrarReservaAdmComponent,
-    ListadoReservasAdmComponent
+    ListadoReservasAdmComponent,
+    ListadoTraspasosComponent
   ],
   imports: [
     BrowserModule,
