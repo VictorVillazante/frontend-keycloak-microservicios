@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +27,10 @@ import { ListadoReservasAdmComponent } from './components/listado-reservas-adm/l
 import { ListadoTraspasosComponent } from './components/listado-traspasos/listado-traspasos.component';
 import { VerDatosPacienteComponent } from './components/ver-datos-paciente/ver-datos-paciente.component';
 import { DatosConsultaAdmComponent } from './components/datos-consulta-adm/datos-consulta-adm.component';
+import { AppGuard } from './guard/app.auth';
+import { initializeKeycloak } from './util/app.util';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -47,9 +51,11 @@ import { DatosConsultaAdmComponent } from './components/datos-consulta-adm/datos
     ListadoReservasAdmComponent,
     ListadoTraspasosComponent,
     VerDatosPacienteComponent,
-    DatosConsultaAdmComponent
+    DatosConsultaAdmComponent,
+    NotfoundComponent
   ],
   imports: [
+    KeycloakAngularModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -58,9 +64,17 @@ import { DatosConsultaAdmComponent } from './components/datos-consulta-adm/datos
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    AppGuard,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,9 +15,11 @@ import { RegistrarReservaAdmComponent } from './components/registrar-reserva-adm
 import { ListadoReservasAdmComponent } from './components/listado-reservas-adm/listado-reservas-adm.component';
 import { ListadoTraspasosComponent } from './components/listado-traspasos/listado-traspasos.component';
 import { DatosConsultaAdmComponent } from './components/datos-consulta-adm/datos-consulta-adm.component';
+import { NotfoundComponent } from "./components/notfound/notfound.component";
+import { AppGuard } from "./guard/app.auth";
 
 const APP_ROUTES: Routes = [ 
-    { path: '', component:  PaginaPrincipalComponent},
+    { path: '', component:  PaginaPrincipalComponent,canActivate:[AppGuard],data:{roles:[]}},
     { path: 'consultas', component:  ListaConsultasPacienteIdComponent},
     {   
         path: 'consultas-medico', 
@@ -28,9 +30,9 @@ const APP_ROUTES: Routes = [
     { path: 'llenar-datos-consulta/orden-laboratorio/:id', component:  RegistrarOrdenLaboratorioComponent},
 
     { path: 'receta-consulta/:id', component:  AgregarRecetaComponent},
-    { path: 'menu-paciente', component:  MenuPacienteComponent},
-    { path: 'menu-adm', component:  MenuAdmComponent},
-    { path: 'menu-medico', component:  MenuMedicoComponent},
+    { path: 'menu-paciente', component:  MenuPacienteComponent,canActivate:[AppGuard],data:{roles:['PACIENTE']}},
+    { path: 'menu-adm', component:  MenuAdmComponent,canActivate:[AppGuard],data:{roles:['ADMINISTRADOR']}},
+    { path: 'menu-medico', component:  MenuMedicoComponent,canActivate:[AppGuard],data:{roles:['MEDICO']}},
     { path: 'consultas/modificar-reserva/:id', component:  ModificarReservaComponent},
     { path: 'registrar-reserva', component:  RegistrarReservaComponent},
     
@@ -38,6 +40,8 @@ const APP_ROUTES: Routes = [
     { path: 'adm/registrar-reserva', component:  RegistrarReservaAdmComponent},
     { path: 'adm/listado-traspasos', component:  ListadoTraspasosComponent},
     { path: 'adm/ver-datos-consulta/:id', component:  DatosConsultaAdmComponent},
+    { path: 'notfound', component:NotfoundComponent},
+
 
 
 ];
