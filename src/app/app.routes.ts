@@ -30,7 +30,7 @@ const APP_ROUTES: Routes = [
     { path: 'llenar-datos-consulta/orden-laboratorio/:id', component:  RegistrarOrdenLaboratorioComponent},
 
     { path: 'receta-consulta/:id', component:  AgregarRecetaComponent},
-    { path: 'menu-paciente', component:  MenuPacienteComponent,canActivate:[AppGuard],data:{roles:['PACIENTE']}},
+    { path: 'menu-paciente', component:  MenuPacienteComponent,canActivate:[AppGuard],data:{roles:[]}},
     { path: 'menu-adm', component:  MenuAdmComponent,canActivate:[AppGuard],data:{roles:['ADMINISTRADOR']}},
     { path: 'menu-medico', component:  MenuMedicoComponent,canActivate:[AppGuard],data:{roles:['MEDICO']}},
     { path: 'consultas/modificar-reserva/:id', component:  ModificarReservaComponent},
